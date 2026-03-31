@@ -97,3 +97,131 @@ Space Complexity: O(n) (due to recursive call stack)
 💡 Why this approach?
 Clean and intuitive for understanding recursion
 Demonstrates pointer manipulation during backtracking
+
+
+
+
+
+3. 🔁 Detect Cycle in Linked List (Floyd’s Cycle Detection)
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+This solution checks whether a singly linked list contains a cycle using the efficient Floyd’s Cycle Detection Algorithm (also known as the Tortoise and Hare algorithm).
+
+🚀 Approach
+Two pointers are used:
+slow → moves one step at a time
+fast → moves two steps at a time
+Traverse the list:
+If there is no cycle, fast will reach NULL
+If there is a cycle, fast and slow will eventually meet
+🔍 Key Insight
+In a cyclic list, the faster pointer (fast) will "lap" the slower pointer (slow), causing them to meet at some node inside the cycle.
+📌 Algorithm Steps
+Initialize both pointers at head
+Move slow by 1 step and fast by 2 steps
+If slow == fast, a cycle exists → return true
+If loop ends (fast == NULL), no cycle → return false
+⏱️ Complexity
+Time Complexity: O(n)
+Space Complexity: O(1) (no extra memory used)
+💡 Why this approach?
+Avoids using extra data structures like hash sets
+Optimal and widely used in linked list problems
+
+
+
+
+
+🔍 Find Starting Node of Cycle in Linked List
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                slow = head;
+                while(slow != fast){
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                return fast;
+            }
+        }
+        return NULL;
+    }
+};
+
+This solution detects a cycle in a singly linked list and returns the node where the cycle begins using Floyd’s Cycle Detection Algorithm.
+
+🚀 Approach
+
+The solution works in two phases:
+
+Phase 1: Detect Cycle
+Use two pointers:
+slow → moves one step at a time
+fast → moves two steps at a time
+If a cycle exists, both pointers will eventually meet.
+Phase 2: Find Cycle Start
+Once slow and fast meet:
+Move slow back to head
+Keep fast at the meeting point
+Move both pointers one step at a time:
+The point where they meet again is the starting node of the cycle
+🔍 Key Insight
+The distance from head to cycle start is equal to the distance from meeting point to cycle start inside the loop.
+📌 Algorithm Steps
+Initialize slow and fast at head
+Traverse the list:
+Move slow by 1 step, fast by 2 steps
+If they meet:
+Reset slow to head
+Move both pointers one step at a time
+Return the node where they meet again
+If no cycle exists → return NULL
+⏱️ Complexity
+Time Complexity: O(n)
+Space Complexity: O(1)
+💡 Why this approach?
+No extra memory required (unlike hash-based methods)
+Optimal and commonly asked in interviews
+Builds directly on cycle detection logic
