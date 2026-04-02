@@ -157,7 +157,7 @@ Optimal and widely used in linked list problems
 
 
 
-🔍 Find Starting Node of Cycle in Linked List
+4. 🔍 Find Starting Node of Cycle in Linked List
 
 /**
  * Definition for singly-linked list.
@@ -225,3 +225,226 @@ Space Complexity: O(1)
 No extra memory required (unlike hash-based methods)
 Optimal and commonly asked in interviews
 Builds directly on cycle detection logic
+
+
+
+
+
+5.  🔁 Find Length of Loop in Linked List
+
+## 📌 Problem Statement
+Given a singly linked list, determine whether a loop (cycle) exists.  
+If a loop is present, return the **length of the loop**. Otherwise, return 0.
+
+/*
+Definition of singly linked list:
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode()
+    {
+        val = 0;
+        next = NULL;
+    }
+    ListNode(int data1)
+    {
+        val = data1;
+        next = NULL;
+    }
+    ListNode(int data1, ListNode *next1)
+    {
+        val = data1;
+        next = next1;
+    }
+};
+*/
+
+class Solution {
+public:
+int findLength(ListNode* slow , ListNode* fast){
+    int count = 1;
+    fast = fast->next;
+    while(slow != fast){
+        count++;
+        fast = fast->next;
+    }
+    return count;
+}
+    int findLengthOfLoop(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                return findLength(slow , fast);
+            }
+        }
+        return 0;
+    }
+};
+
+
+---
+
+## 🧠 Approach
+
+This problem is solved using **Floyd’s Cycle Detection Algorithm (Tortoise and Hare)**.
+
+### 🔍 Steps:
+1. Use two pointers:
+   - **Slow pointer** → moves one step at a time  
+   - **Fast pointer** → moves two steps at a time  
+
+2. If a loop exists:
+   - Both pointers will eventually meet inside the loop  
+
+3. Once they meet:
+   - Traverse the loop starting from the meeting point  
+   - Count the number of nodes until reaching the same node again  
+
+---
+
+## ⚙️ Implementation Details
+
+- `findLengthOfLoop()`:
+  - Detects the loop using slow and fast pointers  
+
+- `findLength()`:
+  - Calculates the length of the loop once detected  
+
+---
+
+## ⏱ Time Complexity
+- **O(N)** → Traversing the list  
+
+## 💾 Space Complexity
+- **O(1)** → No extra space used  
+
+---
+
+## 🎯 Key Concepts
+- Floyd’s Cycle Detection Algorithm  
+- Two-pointer technique  
+- Linked List traversal  
+
+---
+
+## ✅ Outcome
+- Efficiently detects loop  
+- Computes loop length without extra memory  
+
+---
+
+
+
+
+
+6. # 🔁 Check if Linked List is Palindrome
+
+## 📌 Problem Statement
+Given the head of a singly linked list, determine whether the linked list is a **palindrome** or not.
+
+A linked list is considered a palindrome if the sequence of values is the same forward and backward.
+
+class Solution {
+public:
+    ListNode* reverse(ListNode* head){
+        ListNode* prev = NULL;
+        ListNode* curr = head;
+
+        while(curr != NULL){
+            ListNode* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    bool isPalindrome(ListNode* head) {
+        if(head == NULL || head->next == NULL){
+            return true;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast->next != NULL && fast->next->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* secondHalf = reverse(slow->next);
+
+        ListNode* firstHalf = head;
+        ListNode* second = secondHalf;
+
+        while(second!=NULL){
+            if(firstHalf->val != second->val){
+                return false;
+            }
+            firstHalf = firstHalf->next;
+            second = second->next;
+        }
+        slow->next = reverse(secondHalf);
+        return true;        
+    }
+};
+
+---
+
+## 🧠 Approach
+
+This solution uses an **optimized two-pointer technique** with in-place reversal.
+
+### 🔍 Steps:
+1. **Find the middle of the linked list**
+   - Use slow and fast pointers  
+   - Slow moves one step, fast moves two steps  
+
+2. **Reverse the second half**
+   - Reverse the linked list from the middle onward  
+
+3. **Compare both halves**
+   - Compare first half and reversed second half node by node  
+
+4. **Restore the list (optional but good practice)**
+   - Reverse the second half again to maintain original structure  
+
+---
+
+## ⚙️ Implementation Details
+
+- `reverse()`:
+  - Reverses a linked list in-place  
+
+- `isPalindrome()`:
+  - Finds middle  
+  - Reverses second half  
+  - Compares both halves  
+  - Restores original list  
+
+---
+
+## ⏱ Time Complexity
+- **O(N)** → Single pass traversal  
+
+## 💾 Space Complexity
+- **O(1)** → No extra space used  
+
+---
+
+## 🎯 Key Concepts
+- Two-pointer technique (slow & fast)  
+- In-place linked list reversal  
+- Efficient comparison of list halves  
+
+---
+
+## ✅ Outcome
+- Checks palindrome efficiently without extra memory  
+- Maintains original list structure after execution  
+
+---
+
+⭐ This problem is important for mastering linked list manipulation and optimization techniques.
