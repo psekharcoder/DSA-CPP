@@ -448,3 +448,83 @@ This solution uses an **optimized two-pointer technique** with in-place reversal
 ---
 
 ⭐ This problem is important for mastering linked list manipulation and optimization techniques.
+
+
+
+
+
+7. Odd Even Linked List
+
+📌 Problem Statement  
+Given the head of a singly linked list, rearrange the nodes such that all nodes at odd positions are grouped together followed by nodes at even positions.
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if(head == NULL || head->next == NULL) return head;
+
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        ListNode* newHead = head->next;
+
+        while(even != NULL && even->next != NULL){
+            odd->next = odd->next->next;
+            even->next = even->next->next;
+
+            odd = odd->next;
+            even = even->next;
+        }
+        odd->next = newHead;
+        return head;
+    }
+};
+
+Note:
+- Position is based on index (1-based), not node value  
+- The relative order within odd and even groups should be maintained  
+
+🧠 Approach  
+This solution uses pointer manipulation to rearrange the list in-place.
+
+Steps:
+1. Use two pointers:
+   - odd pointer to track nodes at odd positions  
+   - even pointer to track nodes at even positions  
+
+2. Store the head of the even list for later connection  
+
+3. Traverse the list:
+   - Connect odd nodes together  
+   - Connect even nodes together  
+
+4. Finally, attach the even list at the end of the odd list  
+
+⚙️ Implementation Details  
+- odd starts from head  
+- even starts from head->next  
+- newHead stores the start of even list  
+- The list is rearranged by updating next pointers without using extra memory  
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+🎯 Key Concepts  
+- Linked list traversal  
+- Pointer manipulation  
+- In-place rearrangement  
+
+✅ Outcome  
+Efficiently rearranges the linked list while maintaining relative order and using constant space.
