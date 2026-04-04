@@ -597,3 +597,65 @@ O(1)
 
 ✅ Outcome  
 Efficiently removes the nth node from the end in a single traversal while maintaining optimal space usage.
+
+
+
+
+
+9. Delete Middle Node of Linked List
+
+📌 Problem Statement  
+Given the head of a singly linked list, delete the middle node and return the updated head.
+
+Note:
+- If the list has only one node, return NULL  
+- The middle is defined as the ⌊n/2⌋th node (0-based index)  
+
+---
+
+🧠 Approach  
+This solution uses the two-pointer technique to efficiently find the middle node.
+
+Steps:
+1. Initialize two pointers:
+   - slow pointer moves one step  
+   - fast pointer moves two steps  
+
+2. Move fast pointer ahead initially to maintain correct position  
+
+3. Traverse the list:
+   - slow reaches the node before the middle  
+   - fast reaches the end  
+
+4. Remove the middle node:
+   - Update next pointer of slow  
+   - Delete the middle node  
+
+---
+
+⚙️ Implementation Details  
+- Handle edge case when list has only one node  
+- slow starts from head  
+- fast starts from head->next->next  
+- slow stops just before the middle node  
+- Update links to remove the middle node  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Two-pointer technique  
+- Linked list traversal  
+- In-place deletion  
+
+---
+
+✅ Outcome  
+Efficiently removes the middle node in a single traversal using constant space.
