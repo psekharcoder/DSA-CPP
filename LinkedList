@@ -688,3 +688,60 @@ O(1)
 
 ✅ Outcome  
 Efficiently removes the middle node in a single traversal using constant space.
+
+
+
+
+
+10. Sort Linked List
+
+📌 Problem Statement  
+Given the head of a singly linked list, sort the list in ascending order.
+
+---
+
+🧠 Approach  
+This solution uses the Merge Sort algorithm, which is efficient for linked lists.
+
+Steps:
+1. Find the middle of the linked list using slow and fast pointers  
+2. Split the list into two halves  
+3. Recursively sort both halves  
+4. Merge the sorted halves into one sorted list  
+
+---
+
+⚙️ Implementation Details  
+
+- findMiddle:
+  - Uses slow and fast pointers to locate the middle node  
+
+- sortList:
+  - Base case: if list has 0 or 1 node, return head  
+  - Split list into left and right halves  
+  - Recursively sort both halves  
+
+- merge:
+  - Merge two sorted linked lists using a dummy node  
+  - Compare nodes and attach smaller value first  
+
+---
+
+⏱ Time Complexity  
+O(N log N)
+
+💾 Space Complexity  
+O(log N) (due to recursion)
+
+---
+
+🎯 Key Concepts  
+- Merge Sort algorithm  
+- Linked list splitting  
+- Two-pointer technique  
+- Recursive problem solving  
+
+---
+
+✅ Outcome  
+Efficiently sorts the linked list in O(N log N) time using merge sort, which is optimal for linked lists.
