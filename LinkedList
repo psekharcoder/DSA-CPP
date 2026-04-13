@@ -695,6 +695,7 @@ Efficiently removes the middle node in a single traversal using constant space.
 
 10. Sort Linked List
 
+
 📌 Problem Statement  
 Given the head of a singly linked list, sort the list in ascending order.
 
@@ -799,3 +800,119 @@ O(log N) (due to recursion)
 
 ✅ Outcome  
 Efficiently sorts the linked list in O(N log N) time using merge sort, which is optimal for linked lists.
+
+
+
+
+
+11. Sort Linked List of 0s, 1s and 2s
+
+📌 Problem Statement  
+Given the head of a singly linked list containing only values 0, 1, and 2, sort the list such that all 0s come first, followed by 1s, then 2s.
+
+/*
+Definition of singly linked list:
+class ListNode{
+  public:
+    int data;
+    ListNode *next;
+    ListNode() : data(0), next(nullptr) {}
+    ListNode(int x) : data(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : data(x), next(next) {}
+};
+*/
+
+class Solution {
+    public:
+        ListNode* sortList(ListNode* &head) {
+            if(head == NULL || head->next == NULL) return head;
+
+            ListNode* zeroH = new ListNode(-1);
+            ListNode* oneH = new ListNode(-1);
+            ListNode* twoH = new ListNode(-1);
+
+            ListNode* zero  = zeroH;
+            ListNode* one = oneH;
+            ListNode* two = twoH;
+            ListNode* temp = head;
+
+            while(temp != NULL){
+                if(temp->data == 0){
+                    zero->next = temp;
+                    zero = zero->next;
+                }else if(temp->data == 1){
+                    one->next = temp;
+                    one = one->next;
+                }else{
+                    two->next = temp;
+                    two = two->next;
+                }
+                temp = temp->next;
+            }
+            zero->next = (oneH->next) ? (oneH->next) : (twoH->next);
+            one->next = (twoH->next);
+            two->next = NULL;
+
+            ListNode* newHead = zeroH->next;
+            delete zeroH;
+            delete oneH;
+            delete twoH;
+
+            return newHead;
+            
+        }
+};
+
+
+---
+
+🧠 Approach  
+This solution uses three separate linked lists to group nodes based on their values.
+
+Steps:
+1. Create three dummy nodes:
+   - one for 0s list  
+   - one for 1s list  
+   - one for 2s list  
+
+2. Traverse the original list:
+   - Attach nodes with value 0 to zero list  
+   - Attach nodes with value 1 to one list  
+   - Attach nodes with value 2 to two list  
+
+3. Connect the three lists:
+   - zero list → one list → two list  
+
+4. Return the head of the new sorted list  
+
+---
+
+⚙️ Implementation Details  
+- Use dummy nodes (zeroH, oneH, twoH) to simplify list construction  
+- Maintain separate pointers for each list  
+- Traverse the original list only once  
+- Connect lists carefully to avoid null pointer issues  
+- Delete dummy nodes after use  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Linked list manipulation  
+- Partitioning technique  
+- Dummy node usage  
+
+---
+
+✅ Outcome  
+Efficiently sorts the linked list containing 0s, 1s, and 2s in a single traversal without extra space.
+
+
+
