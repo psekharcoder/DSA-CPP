@@ -397,7 +397,7 @@ public:
 
 This solution uses an **optimized two-pointer technique** with in-place reversal.
 
- 🔍 Steps:
+ 🔍 Steps:    
 1. **Find the middle of the linked list**
    - Use slow and fast pointers  
    - Slow moves one step, fast moves two steps  
