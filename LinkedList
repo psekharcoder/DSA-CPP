@@ -994,7 +994,7 @@ O(1)
 ---
 
 ✅ Outcome  
-Efficiently finds the intersection node without extra space or length calculation.
+Efficiently finds the intersection node without extra space or length calculation.    
 
 
 
