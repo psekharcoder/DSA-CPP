@@ -916,3 +916,85 @@ Efficiently sorts the linked list containing 0s, 1s, and 2s in a single traversa
 
 
 
+
+
+12. Intersection of Two Linked Lists
+
+📌 Problem Statement  
+Given the heads of two singly linked lists, return the node at which the two lists intersect. If the two linked lists have no intersection, return NULL.
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA == NULL || headB == NULL) return NULL;
+        ListNode* temp1 = headA;
+        ListNode* temp2 = headB;
+
+        while(temp1 != temp2){
+             if(temp1 == NULL) temp1 = headB;
+             else temp1 = temp1->next;
+             if(temp2 == NULL) temp2 = headA;
+             else temp2 = temp2->next;
+           
+        }
+        return temp1;
+    }
+};
+
+---
+
+🧠 Approach  
+This solution uses a two-pointer technique to find the intersection without calculating lengths.
+
+Steps:
+1. Initialize two pointers:
+   - one starting at headA  
+   - one starting at headB  
+
+2. Traverse both lists:
+   - When a pointer reaches the end, redirect it to the head of the other list  
+
+3. Continue traversal:
+   - Both pointers will eventually meet at the intersection node  
+   - If no intersection exists, both will reach NULL  
+
+---
+
+⚙️ Implementation Details  
+- temp1 starts from headA  
+- temp2 starts from headB  
+- When temp1 reaches NULL, move it to headB  
+- When temp2 reaches NULL, move it to headA  
+- Loop continues until both pointers meet  
+
+---
+
+⏱ Time Complexity  
+O(N + M)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Two-pointer technique  
+- Linked list traversal  
+- Pointer switching strategy  
+
+
+---
+
+✅ Outcome  
+Efficiently finds the intersection node without extra space or length calculation.
+
+
+
