@@ -998,3 +998,55 @@ Efficiently finds the intersection node without extra space or length calculatio
 
 
 
+
+
+Add Two Numbers (Linked List)
+
+📌 Problem Statement  
+Given two non-empty linked lists representing two non-negative integers, where digits are stored in reverse order, add the two numbers and return the sum as a linked list.
+
+Each node contains a single digit, and there are no leading zeros except the number 0 itself.
+
+---
+
+🧠 Approach  
+This solution simulates the addition process digit by digit, similar to how we add numbers manually.
+
+Steps:
+1. Initialize a dummy node to build the result list  
+2. Traverse both linked lists simultaneously  
+3. Add corresponding digits along with carry  
+4. Create a new node with the digit (sum % 10)  
+5. Update carry as (sum / 10)  
+6. Continue until both lists and carry are exhausted  
+
+---
+
+⚙️ Implementation Details  
+- Use a dummy node to simplify list construction  
+- Maintain a carry variable for sums greater than 9  
+- Traverse both lists until all digits and carry are processed  
+- Create new nodes dynamically for the result list  
+
+---
+
+⏱ Time Complexity  
+O(max(N, M))
+
+💾 Space Complexity  
+O(max(N, M))
+
+---
+
+🎯 Key Concepts  
+- Linked list traversal  
+- Simulation of addition  
+- Carry handling  
+
+---
+
+✅ Outcome  
+Efficiently adds two numbers represented as linked lists and returns the result in the same format.
+
+
+
