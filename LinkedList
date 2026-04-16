@@ -1000,7 +1000,7 @@ Efficiently finds the intersection node without extra space or length calculatio
 
 
 
-Add Two Numbers (Linked List)
+13. Add Two Numbers (Linked List)
 
 📌 Problem Statement  
 Given two non-empty linked lists representing two non-negative integers, where digits are stored in reverse order, add the two numbers and return the sum as a linked list.
@@ -1085,6 +1085,59 @@ O(max(N, M))
 
 ✅ Outcome  
 Efficiently adds two numbers represented as linked lists and returns the result in the same format.
+
+
+
+
+
+14. Delete All Occurrences in Doubly Linked List
+
+📌 Problem Statement  
+Given the head of a doubly linked list and a target value, delete all nodes that have the given target value and return the updated head.
+
+---
+
+🧠 Approach  
+This solution traverses the doubly linked list and removes nodes matching the target value by updating previous and next pointers.
+
+Steps:
+1. Traverse the list using a temporary pointer  
+2. If the current node value matches the target:
+   - Update the head if needed  
+   - Adjust previous and next node links  
+3. Move to the next node after deletion  
+4. Continue until the entire list is processed  
+
+---
+
+⚙️ Implementation Details  
+- Use a temp pointer to traverse the list  
+- If node to be deleted is the head, update head  
+- Store previous and next nodes before deletion  
+- Update:
+  - prevNode->next = nextNode  
+  - nextNode->prev = prevNode  
+- Free the current node and move ahead safely  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Doubly linked list traversal  
+- Pointer updates (prev and next)  
+- Safe node deletion  
+
+---
+
+✅ Outcome  
+Efficiently removes all occurrences of the target value while maintaining the structure of the doubly linked list.
 
 
 
