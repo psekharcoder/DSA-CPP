@@ -1095,6 +1095,59 @@ Efficiently adds two numbers represented as linked lists and returns the result 
 📌 Problem Statement  
 Given the head of a doubly linked list and a target value, delete all nodes that have the given target value and return the updated head.
 
+/*
+Definition of doubly linked list:
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode *prev;
+    ListNode()
+    {
+        val = 0;
+        next = NULL;
+        prev = NULL;
+    }
+    ListNode(int data1)
+    {
+        val = data1;
+        next = NULL;
+        prev = NULL;
+    }
+    ListNode(int data1, ListNode *next1, ListNode *prev1)
+    {
+        val = data1;
+        next = next1;
+        prev = prev1;
+    }
+};
+*/
+
+class Solution {
+public:
+    ListNode * deleteAllOccurrences(ListNode* head, int target) {
+        ListNode* temp = head;
+        while(temp != NULL){
+            if(temp->val == target){
+                if(temp == head){
+                    head = temp->next;
+                }
+                ListNode* prevNode = temp->prev;
+                ListNode* nextNode = temp->next;
+
+                if(prevNode) prevNode->next = nextNode;
+                if(nextNode) nextNode->prev = prevNode;
+
+                free(temp);
+                temp = nextNode;
+            }else{
+                temp = temp->next;
+            }
+        }
+        return head;
+    }
+};
+
 ---
 
 🧠 Approach  
