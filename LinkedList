@@ -1292,3 +1292,56 @@ Efficiently finds all pairs with the given sum in a single traversal using the t
 
 
 
+
+
+16. Remove Duplicates from Sorted Doubly Linked List
+
+📌 Problem Statement  
+Given the head of a sorted doubly linked list, remove all duplicate nodes such that each element appears only once. Return the updated head.
+
+---
+
+🧠 Approach  
+This solution leverages the sorted property of the list to remove duplicates efficiently.
+
+Steps:
+1. Traverse the list using a pointer  
+2. For each node, check if the next node has the same value  
+3. If duplicates are found:
+   - Remove them by updating pointers  
+4. Continue until the entire list is processed  
+
+---
+
+⚙️ Implementation Details  
+- Use a temp pointer to traverse the list  
+- For each node, compare it with its next node  
+- If values are equal:
+  - Skip duplicate nodes  
+  - Free memory of removed nodes  
+- Update:
+  - temp->next to the next unique node  
+  - nextNode->prev back to temp  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Doubly linked list traversal  
+- Handling duplicates in sorted data  
+- Pointer updates (next and prev)  
+
+---
+
+✅ Outcome  
+Efficiently removes duplicate nodes while maintaining the sorted structure of the doubly linked list.
+
+
+
