@@ -1194,3 +1194,60 @@ Efficiently removes all occurrences of the target value while maintaining the st
 
 
 
+
+
+15. Find Pairs with Given Sum in Doubly Linked List
+
+📌 Problem Statement  
+Given the head of a sorted doubly linked list and a target value, find all pairs of nodes whose sum is equal to the target. Return the pairs as a list of values.
+
+
+
+---
+
+🧠 Approach  
+This solution uses the two-pointer technique on a doubly linked list.
+
+Steps:
+1. Initialize two pointers:
+   - left pointer at the head  
+   - right pointer at the tail  
+
+2. Traverse the list:
+   - If sum equals target, store the pair and move both pointers  
+   - If sum is less than target, move left pointer forward  
+   - If sum is greater than target, move right pointer backward  
+
+3. Continue until pointers meet  
+
+---
+
+⚙️ Implementation Details  
+- Use a helper function to find the tail of the list  
+- left starts from head  
+- right starts from tail  
+- Use prev and next pointers to move backward and forward  
+- Store valid pairs in a 2D vector  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(K) (for storing pairs)
+
+---
+
+🎯 Key Concepts  
+- Two-pointer technique  
+- Doubly linked list traversal  
+- Efficient pair finding in sorted structure  
+
+---
+
+✅ Outcome  
+Efficiently finds all pairs with the given sum in a single traversal using the two-pointer approach.
+
+
+
