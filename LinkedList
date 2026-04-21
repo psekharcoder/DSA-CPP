@@ -1394,3 +1394,61 @@ Efficiently removes duplicate nodes while maintaining the sorted structure of th
 
 
 
+
+
+17. Reverse Nodes in K Group
+
+📌 Problem Statement  
+Given the head of a singly linked list, reverse the nodes of the list in groups of size k and return the modified list.
+
+If the number of nodes is not a multiple of k, the remaining nodes should remain as it is.
+
+---
+
+🧠 Approach  
+This solution processes the linked list in segments of size k and reverses each segment individually.
+
+Steps:
+1. Traverse the list and identify the kth node from the current position  
+2. If fewer than k nodes remain, leave them unchanged  
+3. Detach the group of k nodes  
+4. Reverse the current group  
+5. Connect the reversed group with the previous part  
+6. Move to the next group and repeat  
+
+---
+
+⚙️ Implementation Details  
+- getKthNode:
+  - Finds the kth node from the current position  
+
+- reverseLinkedList:
+  - Reverses a linked list segment  
+
+- reverseKGroup:
+  - Iterates through the list in chunks of size k  
+  - Breaks the list temporarily to reverse each group  
+  - Reconnects reversed groups properly  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Linked list reversal  
+- Group-wise processing  
+- Pointer manipulation  
+
+---
+
+✅ Outcome  
+Efficiently reverses nodes in groups of size k while maintaining overall list structure.
+
+
+
