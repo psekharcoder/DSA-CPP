@@ -1514,3 +1514,55 @@ Efficiently reverses nodes in groups of size k while maintaining overall list st
 
 
 
+
+
+Rotate Linked List to the Right
+
+📌 Problem Statement  
+Given the head of a singly linked list, rotate the list to the right by k places.
+
+---
+
+🧠 Approach  
+This solution uses list length calculation and circular linking to efficiently rotate the list.
+
+Steps:
+1. Traverse the list to find its length and tail node  
+2. Connect the tail to the head to form a circular list  
+3. Compute effective rotations using k % length  
+4. Find the new tail node at position (length - k)  
+5. Break the circle and update the new head  
+
+---
+
+⚙️ Implementation Details  
+- Calculate length of the list  
+- Connect tail->next to head to make it circular  
+- Reduce k using modulo to avoid unnecessary rotations  
+- Use helper function to find the (length - k)th node  
+- Update:
+  - new head = next of that node  
+  - break the link to form final list  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Linked list traversal  
+- Circular linked list concept  
+- Efficient rotation using modulo  
+
+---
+
+✅ Outcome  
+Efficiently rotates the linked list in-place without extra space.
+
+
+
