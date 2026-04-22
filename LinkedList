@@ -1726,3 +1726,58 @@ Efficiently flattens a multi-level linked list into a single sorted list using c
 
 
 
+
+
+20. Copy Linked List with Random Pointer
+
+📌 Problem Statement  
+Given a linked list where each node contains an additional random pointer that can point to any node or NULL, create a deep copy of the list.
+
+---
+
+🧠 Approach  
+This solution uses an optimized in-place technique without extra space.
+
+Steps:
+1. Insert copied nodes in between original nodes  
+2. Assign random pointers for copied nodes  
+3. Separate the copied list from the original list  
+
+---
+
+⚙️ Implementation Details  
+
+- insert:
+  - Create a copy node after each original node  
+  - Link copied nodes in between the original list  
+
+- random:
+  - Set random pointers for copied nodes  
+  - copy->random = original->random->next  
+
+- last:
+  - Separate the copied list from the original list  
+  - Restore the original list structure  
+
+---
+
+⏱ Time Complexity  
+O(N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Deep copy of linked list  
+- In-place manipulation  
+- Handling random pointers  
+
+---
+
+✅ Outcome  
+Efficiently creates a deep copy of the linked list with random pointers without using extra space.
+
+
+
