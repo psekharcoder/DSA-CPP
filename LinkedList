@@ -1516,7 +1516,7 @@ Efficiently reverses nodes in groups of size k while maintaining overall list st
 
 
 
-Rotate Linked List to the Right
+18. Rotate Linked List to the Right
 
 📌 Problem Statement  
 Given the head of a singly linked list, rotate the list to the right by k places.
