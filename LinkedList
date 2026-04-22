@@ -1608,3 +1608,57 @@ Efficiently rotates the linked list in-place without extra space.
 
 
 
+
+
+19. Flatten a Linked List
+
+📌 Problem Statement  
+Given a special linked list where each node has a next pointer and a child pointer, flatten the list into a single sorted list using the child pointers.
+
+---
+
+🧠 Approach  
+This solution uses recursion and merging to flatten the list.
+
+Steps:
+1. Recursively flatten the list from the next node  
+2. Merge the current list with the already flattened next list  
+3. Use child pointers to build the flattened list  
+4. Ensure next pointers are set to NULL  
+
+---
+
+⚙️ Implementation Details  
+- flattenLinkedList:
+  - Base case: if head is NULL or only one node  
+  - Recursively flatten the next list  
+  - Merge current list with flattened list  
+
+- merge:
+  - Merge two sorted linked lists using child pointers  
+  - Use a dummy node to simplify merging  
+  - Always connect smaller value first  
+  - Set next pointers to NULL during merge  
+
+---
+
+⏱ Time Complexity  
+O(N * M) (depends on merging multiple lists)
+
+💾 Space Complexity  
+O(N) (due to recursion stack)
+
+---
+
+🎯 Key Concepts  
+- Recursion  
+- Merge two sorted lists  
+- Multi-level linked list handling  
+
+---
+
+✅ Outcome  
+Efficiently flattens a multi-level linked list into a single sorted list using child pointers.
+
+
+
