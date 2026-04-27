@@ -1,1 +1,141 @@
- 
+ 1. Selection Sort
+
+📌 Problem Statement  
+Sort an array of integers using the selection sort algorithm.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void selection_sort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int mini = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[mini]) {
+                mini = j;
+            }
+        }
+        int temp = arr[mini];
+        arr[mini] = arr[i];
+        arr[i] = temp;
+    }
+
+    cout << "After selection sort: " << "\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+}
+
+
+---
+
+🧠 Approach  
+Selection Sort works by repeatedly selecting the smallest element from the unsorted part and placing it at the correct position.
+
+Steps:
+1. Start from the first index  
+2. Find the minimum element in the remaining array  
+3. Swap it with the current index  
+4. Repeat until the array is sorted  
+
+---
+
+⚙️ Implementation Details  
+- Maintain an index for the minimum element  
+- Compare elements in the unsorted portion  
+- Swap the smallest element with the current position  
+
+---
+
+⏱ Time Complexity  
+O(N²)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- In-place sorting  
+- Comparison-based algorithm  
+- Simple but inefficient for large inputs  
+
+---
+
+✅ Outcome  
+Sorts the array by repeatedly placing the smallest element in its correct position.
+
+
+
+
+
+2. Bubble Sort
+
+📌 Problem Statement  
+Sort an array of integers using the bubble sort algorithm.
+
+class BubbleSort {
+public:
+    void bubble_sort(vector<int>& arr) {
+        int n = arr.size();
+        for (int i = n - 1; i >= 0; i--) {
+            int didSwap = 0;
+            for (int j = 0; j <= i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr[j], arr[j + 1]);
+                    didSwap = 1;
+                }
+            }
+            if (didSwap == 0) {
+                break;
+            }
+        }
+
+        cout << "After Using Bubble Sort:\n";
+        for (int num : arr) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+};
+
+
+---
+
+🧠 Approach  
+Bubble Sort works by repeatedly comparing adjacent elements and swapping them if they are in the wrong order.
+
+Steps:
+1. Traverse the array multiple times  
+2. Compare adjacent elements  
+3. Swap them if they are not in correct order  
+4. After each pass, the largest element moves to its correct position  
+5. Stop early if no swaps are performed  
+
+---
+
+⚙️ Implementation Details  
+- Use nested loops to compare adjacent elements  
+- Track swaps using a flag (didSwap)  
+- If no swaps occur in a pass, the array is already sorted  
+
+---
+
+⏱ Time Complexity  
+O(N²) (Worst and Average)  
+O(N) (Best case when already sorted)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Adjacent swapping  
+- Optimization using swap flag  
+- Stable sorting algorithm  
+
+---
+
+✅ Outcome  
+Sorts the array by repeatedly pushing the largest element to the end in each iteration.
