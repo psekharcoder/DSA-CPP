@@ -28,7 +28,7 @@ void selection_sort(int arr[], int n) {
 
 
 ---
-
+   
 🧠 Approach  
 Selection Sort works by repeatedly selecting the smallest element from the unsorted part and placing it at the correct position.
 
