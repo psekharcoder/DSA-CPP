@@ -144,4 +144,48 @@ Sorts the array by repeatedly pushing the largest element to the end in each ite
 
 
 
+3. Insertion Sort
 
+📌 Problem Statement  
+Sort an array of integers using the insertion sort algorithm.
+
+---
+
+🧠 Approach  
+Insertion Sort builds the sorted array one element at a time by inserting each element into its correct position.
+
+Steps:
+1. Start from the second element  
+2. Compare it with previous elements  
+3. Shift all larger elements one position to the right  
+4. Insert the current element at its correct position  
+5. Repeat for all elements  
+
+---
+
+⚙️ Implementation Details  
+- Treat the first element as already sorted  
+- Use a key variable to store current element  
+- Shift elements greater than key  
+- Insert key at the correct position  
+
+---
+
+⏱ Time Complexity  
+O(N²) (Worst and Average)  
+O(N) (Best case when already sorted)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- In-place sorting  
+- Incremental building of sorted array  
+- Stable sorting algorithm  
+
+---
+
+✅ Outcome  
+Efficient for small datasets and nearly sorted arrays by placing elements in their correct position step by step.
