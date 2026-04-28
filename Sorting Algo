@@ -217,4 +217,46 @@ Efficient for small datasets and nearly sorted arrays by placing elements in the
 
 
 
+4. Merge Sort
 
+📌 Problem Statement  
+Sort an array of integers using the merge sort algorithm.
+
+---
+
+🧠 Approach  
+Merge Sort follows the divide and conquer strategy by dividing the array into smaller parts, sorting them, and then merging them.
+
+Steps:
+1. Divide the array into two halves  
+2. Recursively sort both halves  
+3. Merge the sorted halves into one sorted array  
+4. Repeat until the entire array is sorted  
+
+---
+
+⚙️ Implementation Details  
+- Recursively split the array using mid index  
+- Use a temporary array to merge sorted halves  
+- Compare elements from both halves and insert in sorted order  
+- Copy merged elements back to the original array  
+
+---
+
+⏱ Time Complexity  
+O(N log N)
+
+💾 Space Complexity  
+O(N)
+
+---
+
+🎯 Key Concepts  
+- Divide and conquer  
+- Recursion  
+- Merging sorted arrays  
+
+---
+
+✅ Outcome  
+Efficiently sorts the array in O(N log N) time, making it suitable for large datasets.
