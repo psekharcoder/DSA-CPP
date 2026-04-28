@@ -212,3 +212,9 @@ O(1)
 
 ✅ Outcome  
 Efficient for small datasets and nearly sorted arrays by placing elements in their correct position step by step.
+
+
+
+
+
+
