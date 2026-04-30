@@ -374,4 +374,49 @@ Sorts the array recursively while reducing unnecessary passes using early exit o
 
 
 
+6. Recursive Insertion Sort
 
+📌 Problem Statement  
+Sort an array of integers using the recursive version of the insertion sort algorithm.
+
+
+
+---
+
+🧠 Approach  
+This solution builds the sorted array recursively by inserting each element into its correct position.
+
+Steps:
+1. Assume the first element is already sorted  
+2. Take the next element and compare it with previous elements  
+3. Shift larger elements to the right  
+4. Place the current element at its correct position  
+5. Recursively process the next element  
+
+---
+
+⚙️ Implementation Details  
+- Base case: when index reaches array size  
+- Use a loop to shift elements greater than current value  
+- Swap elements until correct position is found  
+- Recursively move to the next index  
+
+---
+
+⏱ Time Complexity  
+O(N²)
+
+💾 Space Complexity  
+O(N) (due to recursion stack)
+
+---
+
+🎯 Key Concepts  
+- Recursion  
+- Incremental sorting  
+- In-place element shifting  
+
+---
+
+✅ Outcome  
+Sorts the array recursively by inserting each element into its correct position step by step.
