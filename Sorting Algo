@@ -302,4 +302,48 @@ Efficiently sorts the array in O(N log N) time, making it suitable for large dat
 
 
 
-5. 
+5. Recursive Bubble Sort
+
+📌 Problem Statement  
+Sort an array of integers using the recursive version of the bubble sort algorithm.
+
+
+
+---
+
+🧠 Approach  
+This solution applies bubble sort recursively by performing one pass and then solving the smaller subproblem.
+
+Steps:
+1. Perform one pass to move the largest element to the end  
+2. Check if any swap occurred  
+3. If no swaps, the array is already sorted  
+4. Recursively call the function for the remaining array of size n-1  
+
+---
+
+⚙️ Implementation Details  
+- Base case: if array size is 1, return  
+- Use a flag to track swaps  
+- Perform one full pass in each recursive call  
+- Reduce problem size by one after each call  
+
+---
+
+⏱ Time Complexity  
+O(N²)
+
+💾 Space Complexity  
+O(N) (due to recursion stack)
+
+---
+
+🎯 Key Concepts  
+- Recursion  
+- Bubble sort logic  
+- Optimization using swap flag  
+
+---
+
+✅ Outcome  
+Sorts the array recursively while reducing unnecessary passes using early exit optimization.
