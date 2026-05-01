@@ -445,6 +445,7 @@ Sorts the array recursively by inserting each element into its correct position 
 📌 Problem Statement  
 Sort an array of integers using the quick sort algorithm.
 
+
 class Solution {
 public:
     void quickSort(vector<int>& arr, int low, int high) {
@@ -470,6 +471,7 @@ public:
         return i + 1;
     }
 };
+
 
 ---
 
