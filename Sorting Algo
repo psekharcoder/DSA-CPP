@@ -440,4 +440,49 @@ Sorts the array recursively by inserting each element into its correct position 
 
 
 
-7. 
+7. Quick Sort
+
+📌 Problem Statement  
+Sort an array of integers using the quick sort algorithm.
+
+---
+
+🧠 Approach  
+Quick Sort uses the divide and conquer strategy by selecting a pivot element and partitioning the array around it.
+
+Steps:
+1. Choose a pivot element (here, last element)  
+2. Rearrange the array so that:
+   - elements smaller than pivot come before it  
+   - elements greater than pivot come after it  
+3. Place pivot at its correct position  
+4. Recursively apply the same process to left and right subarrays  
+
+---
+
+⚙️ Implementation Details  
+- Use partition function to place pivot correctly  
+- Maintain an index to track smaller elements  
+- Swap elements to ensure correct ordering  
+- Recursively sort left and right partitions  
+
+---
+
+⏱ Time Complexity  
+O(N log N) (Average case)  
+O(N²) (Worst case)
+
+💾 Space Complexity  
+O(log N) (due to recursion stack)
+
+---
+
+🎯 Key Concepts  
+- Divide and conquer  
+- Partitioning logic  
+- Recursion  
+
+---
+
+✅ Outcome  
+Efficiently sorts the array by recursively partitioning around a pivot element.
