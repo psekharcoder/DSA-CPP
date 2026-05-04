@@ -149,6 +149,28 @@ Efficiently finds the lower bound index using logarithmic time complexity.
 📌 Problem Statement  
 Given a sorted array and a value x, find the index of the first element that is strictly greater than x. If such an element does not exist, return n.
 
+class UpperBoundFinder {
+public:
+    int upperBound(vector<int> arr, int n, int x) {
+        int low = 0;
+        int high = n - 1;
+        int ans = n;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (arr[mid] > x) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return ans;
+    }
+};
+
+
 ---
 
 🧠 Approach  
