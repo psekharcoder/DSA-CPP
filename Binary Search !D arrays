@@ -284,4 +284,4 @@ O(1)
 ---
 
 ✅ Outcome  
-Efficiently finds the correct index where the target exists or should be inserted.
+Efficiently finds the correct index where the target exists or should be inserted. 
