@@ -285,3 +285,62 @@ O(1)
 
 ✅ Outcome  
 Efficiently finds the correct index where the target exists or should be inserted. 
+
+
+
+
+
+5. Floor and Ceil in Sorted Array
+
+📌 Problem Statement  
+Given a sorted array and a value x, find:
+- Floor → the greatest element smaller than or equal to x  
+- Ceil → the smallest element greater than or equal to x  
+
+Return both values.
+
+---
+
+🧠 Approach  
+This solution uses binary search separately to find floor and ceil efficiently.
+
+Steps to Find Floor:
+1. Traverse using binary search  
+2. If current element is less than or equal to x:
+   - store it as potential floor  
+   - move to the right side for a larger valid value  
+3. Otherwise, move left  
+
+Steps to Find Ceil:
+1. Traverse using binary search  
+2. If current element is greater than or equal to x:
+   - store it as potential ceil  
+   - move left for a smaller valid value  
+3. Otherwise, move right  
+
+---
+
+⚙️ Implementation Details  
+- Use two separate binary search functions  
+- Maintain answer variables for floor and ceil  
+- Return -1 if no valid floor or ceil exists  
+
+---
+
+⏱ Time Complexity  
+O(log N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Binary search variant  
+- Floor and ceil logic  
+- Efficient searching in sorted arrays  
+
+---
+
+✅ Outcome  
+Efficiently finds the floor and ceil of a target value using logarithmic time complexity.
