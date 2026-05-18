@@ -394,4 +394,122 @@ Efficiently finds the floor and ceil of a target value using logarithmic time co
 
 
 
-6. 
+6. First & Last Occurrence and Count of Element
+
+📌 Problem Statement  
+Given a sorted array and a target element k, find:
+- First occurrence of k  
+- Last occurrence of k  
+- Total number of occurrences of k  
+
+Return appropriate values if the element is not found.
+
+int firstOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int first = -1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (arr[mid] == k) {
+            first = mid;
+            high = mid - 1;
+        }
+        else if (arr[mid] < k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return first;
+}
+
+int lastOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int last = -1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (arr[mid] == k) {
+            last = mid;
+            low = mid + 1;
+        }
+        else if (arr[mid] < k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return last;
+}
+
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
+    int first = firstOccurrence(arr, n, k);
+    if (first == -1) return {-1, -1};
+
+    int last = lastOccurrence(arr, n, k);
+    return {first, last};
+}
+
+int count(vector<int>& arr, int n, int x) {
+    pair<int, int> ans = firstAndLastPosition(arr, n, x);
+
+    if (ans.first == -1) return 0;
+
+    return (ans.second - ans.first + 1);
+}
+
+
+---
+
+🧠 Approach  
+This solution uses binary search to efficiently find the first and last occurrence of the target element.
+
+Steps to Find First Occurrence:
+1. Apply binary search  
+2. If target is found:
+   - store index as potential answer  
+   - continue searching on the left side  
+3. Otherwise, adjust search space normally  
+
+Steps to Find Last Occurrence:
+1. Apply binary search  
+2. If target is found:
+   - store index as potential answer  
+   - continue searching on the right side  
+3. Otherwise, adjust search space normally  
+
+Counting Occurrences:
+1. Find first occurrence  
+2. Find last occurrence  
+3. Count = last index - first index + 1  
+
+---
+
+⚙️ Implementation Details  
+- Use separate binary search functions for first and last occurrence  
+- Return {-1, -1} if target is absent  
+- Count occurrences using obtained indices  
+
+---
+
+⏱ Time Complexity  
+O(log N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Binary search variant  
+- First and last occurrence logic  
+- Frequency counting in sorted arrays  
+
+---
+
+✅ Outcome  
+Efficiently finds the first occurrence, last occurrence, and total count of a target element in logarithmic time.
