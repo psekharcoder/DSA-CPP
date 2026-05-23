@@ -1,5 +1,5 @@
 # DSA-CPP
-# 💻 Data Structures & Algorithms (DSA) Journey
+# 💻 Data Structures & Algorithms (DSA) Journey. 
 
 ## 📌 About
 This repository contains my structured practice and solutions for Data Structures and Algorithms.  
