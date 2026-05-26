@@ -518,4 +518,63 @@ Efficiently finds the first occurrence, last occurrence, and total count of a ta
 
 
 
-7.
+7. First and Last Occurrence of an Element
+
+📌 Problem Statement  
+Given a sorted array and a target element k, find:
+- First occurrence of k  
+- Last occurrence of k  
+- Total number of occurrences of k in the array  
+
+If the element is not found, return appropriate default values.
+
+---
+
+🧠 Approach  
+This solution uses binary search to efficiently locate the first and last positions of the target element.
+
+Steps to Find First Occurrence:
+1. Apply binary search  
+2. If target is found:
+   - store index as potential answer  
+   - continue searching on the left side for earlier occurrence  
+3. Otherwise, adjust search space normally  
+
+Steps to Find Last Occurrence:
+1. Apply binary search  
+2. If target is found:
+   - store index as potential answer  
+   - continue searching on the right side for later occurrence  
+3. Otherwise, adjust search space normally  
+
+Counting Occurrences:
+1. Find first occurrence  
+2. Find last occurrence  
+3. Count = last index - first index + 1  
+
+---
+
+⚙️ Implementation Details  
+- Use separate binary search functions for first and last occurrence  
+- Return {-1, -1} if target does not exist  
+- Count total occurrences using obtained indices  
+
+---
+
+⏱ Time Complexity  
+O(log N)
+
+💾 Space Complexity  
+O(1)
+
+---
+
+🎯 Key Concepts  
+- Binary search variant  
+- First and last occurrence logic  
+- Frequency counting in sorted arrays  
+
+---
+
+✅ Outcome  
+Efficiently finds the first occurrence, last occurrence, and total frequency of a target element using logarithmic time complexity.
