@@ -15,7 +15,7 @@ I am consistently solving problems to strengthen problem-solving skills and prep
 
 ---
 
-## 📂 Structure
+## 📂 Structure  
 - Solutions are organized topic-wise and day-wise  
 - Each problem includes clean and optimized code  
 - Focus on understanding approach and logic  
